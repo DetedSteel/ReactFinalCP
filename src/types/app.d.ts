@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export interface ICategory {
   id: number;
   title: string;
@@ -16,4 +18,11 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string;
   categoryId: number;
+}
+
+
+export type ButtonPropsT = {
+  text: string;
+  onClick: () => void;
+  style: CSSProperties
 }

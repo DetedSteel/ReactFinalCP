@@ -7,12 +7,16 @@ import { Link } from 'react-router-dom';
 export const Header: FC = () => {
   return (
     <header className={`container ${styles.container}`}>
-      <img src={Logo} alt="logo" />
+      <div className={styles.logoImg}>
+        <img src={Logo} alt="logo" />
+      </div>
       <div className={styles.links}>
         <Link to="/">Main Page</Link>
         <Link to="/categories">Categories</Link>
       </div>
-      <img src={Bag} alt="shopingCart" />
+      <div className={styles.bagImg}>
+        <img src={Bag} alt="shopingCart" />
+      </div>
     </header>
   );
 };

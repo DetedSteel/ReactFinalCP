@@ -1,0 +1,12 @@
+.backgroundImg {
+  background-image: url(/img.png);
+  background-position: cover;
+  height: 600px;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  width: 1440px;
+  margin-left: -40px;
+}
