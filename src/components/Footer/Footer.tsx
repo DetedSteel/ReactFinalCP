@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './footer.module.scss'
-import instIC from '/public/ic-instagram.svg'
-import whatsAppIC from '/public/ic-whatsapp.svg'
+import instIC from './ic-instagram.svg'
+import whatsAppIC from './ic-whatsapp.svg'
 
 export const Footer: FC = () => {
   return (

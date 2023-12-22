@@ -1,0 +1,14 @@
+.header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  gap: 32px;
+}
+
+.items {
+  overflow: scroll;
+  height: 606px;
+}

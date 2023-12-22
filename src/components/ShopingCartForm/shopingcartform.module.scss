@@ -1,31 +1,49 @@
-.container {
-  background: url(/discountForm.png) no-repeat 32px 148px, linear-gradient(261deg, #0B710B 32.63%, #393 98.96%);
-  padding: 32px 32px 0 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cartForm {
+  padding: 32px;
+  width: 548px;
+  height: fit-content;
+  background-color: #f1f3f4;
   border-radius: 12px;
-  margin-top: 80px!important;
 }
 
 .header {
-  color: white;
-  text-align: center;
-  margin-bottom: 56px;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.text {
+  font-size: 40px;
+  font-weight: 500;
+  color: #8b8b8b;
+  grid-column: 1;
+}
+
+.price {
+  font-size: 64px;
+  font-weight: 700;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.orderInfo {
+  display: grid;
+  align-items: flex-end;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
-  width: 516px;
+  width: 484px;
+  margin-top: 32px;
 }
 
 .input {
   padding: 16px 32px;
-  color: white;
-  background-color: transparent;
-  border: 1px solid white;
+  color: #8B8B8B;
+  background-color: white;
+  border: 1px solid #8B8B8B;
   outline: none;
   border-radius: 6px;
   margin-bottom: 16px;
@@ -34,7 +52,7 @@
   width: 100%;
 
   &::placeholder {
-    color: white;
+    color: #8B8B8B;
     font-size: 20px;
     font-weight: 500;
   }
@@ -44,11 +62,10 @@
   margin-top: 32px;
   border-radius: 6px;
   padding: 16px 32px;
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 600;
-  background-color: white;
-  margin-bottom: 32px;
+  background-color: #393;
   border: none;
   cursor: pointer;
 }

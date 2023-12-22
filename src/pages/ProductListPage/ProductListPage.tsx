@@ -64,11 +64,12 @@ export const ProductListPage: FC = () => {
 
   return (
     <div className={`container`}>
-      <h2>{title}</h2>
-      <div>
-        <div>
-          <p>Price</p>
+      <h2 className={styles.header}>{title}</h2>
+      <div className={styles.controlsContainer}>
+        <div className={styles.priceSort}>
+          <label className={styles.controlText}>Price</label>
           <input
+            className={styles.priceInput}
             type="number"
             placeholder="from"
             ref={fromRef}
@@ -80,6 +81,7 @@ export const ProductListPage: FC = () => {
             }
           />
           <input
+            className={styles.priceInput}
             type="number"
             placeholder="to"
             ref={toRef}
@@ -92,9 +94,10 @@ export const ProductListPage: FC = () => {
           />
         </div>
         {params.id !== 'discounts' && (
-          <div>
-            <label htmlFor="">Discounted items</label>
+          <div className={styles.discountContainer}>
+            <label className={styles.controlText}>Discounted items</label>
             <input
+              className={styles.checkbox}
               type="checkbox"
               name=""
               id=""
@@ -118,17 +121,20 @@ export const ProductListPage: FC = () => {
             />
           </div>
         )}
-        <p>Sorted</p>
-        <select
-          defaultValue="default"
-          onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-            dispatch(isAll ? sort2({ sort: e.target.value }) : sort({ sort: e.target.value }));
-          }}
-        >
-          <option value="default">By default</option>
-          <option value="desc">Descending price</option>
-          <option value="asc">Ascending price</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <label className={styles.controlText}>Sorted</label>
+          <select
+            className={styles.sortInput}
+            defaultValue="default"
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              dispatch(isAll ? sort2({ sort: e.target.value }) : sort({ sort: e.target.value }));
+            }}
+          >
+            <option value="default">By default</option>
+            <option value="desc">Descending price</option>
+            <option value="asc">Ascending price</option>
+          </select>
+        </div>
       </div>
       <div className={styles.container}>{renderPrudoducts(isAll ? products2 : products)}</div>
     </div>

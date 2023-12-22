@@ -33,3 +33,9 @@ export interface ICartItem {
   product: IProduct;
   count: number;
 }
+
+export interface IFormInputs {
+  name: string;
+  phone: string;
+  eMail: string;
+}

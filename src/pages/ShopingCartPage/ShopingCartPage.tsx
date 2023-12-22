@@ -1,34 +1,25 @@
-import { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks";
-import { Button } from "../../components/Button/Button";
-import { changeCount, removeFromCart } from "../../store/shopingCartSlice";
+import { FC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
+import { ShopingCartItem } from '../../components/ShopingCartItem/ShopingCartItem';
+import styles from './shopingcartpage.module.scss';
+import { ShopingCartForm } from '../../components/ShopingCartForm/ShopingCartForm';
 
-export const ShopingCartPage:FC = () => {
+export const ShopingCartPage: FC = () => {
   const products = useAppSelector(state => state.shopingCart.items);
   const totalPrice = useAppSelector(state => state.shopingCart.totalPrice);
   const dispatch = useAppDispatch();
 
   return (
     <div className={`container`}>
-      <h2>Shoping Cart</h2>
-      <div>
-        {products.map(e => {
-          return (
-            <div key={e.id}>
-              <p>{e.product.title}</p>
-              <p>{e.product.price}</p>
-              <p>{e.count}</p>
-              <div>
-                <Button text="-" onClick={() => dispatch(changeCount({id: e.id, count: -1}))}/>
-                <p>{e.count}</p>
-                <Button text="+" onClick={() => dispatch(changeCount({id: e.id, count: 1}))}/>
-              </div>
-              <Button text="Remove" onClick={() => dispatch(removeFromCart(e.id))}/>
-            </div>
-          );
-        })}
+      <h2 className={styles.header}>Shoping Cart</h2>
+      <div className={styles.container}>
+        <div className={styles.items}>
+          {products.map(e => {
+            return <ShopingCartItem key={e.id} item={e} dispatch={dispatch} />;
+          })}
+        </div>
+        <ShopingCartForm count={products.length} totalPrice={totalPrice} />
       </div>
-      <h3>{totalPrice}</h3>
     </div>
   );
 };

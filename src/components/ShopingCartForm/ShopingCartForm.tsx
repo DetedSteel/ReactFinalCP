@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import styles from './discountform.module.scss';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import styles from './shopingcartform.module.scss'
+import { SubmitHandler, useForm } from 'react-hook-form';
 import axios from 'axios';
 import { IFormInputs } from '../../types/app';
 
-
-
-export const DiscountForm: FC = () => {
+export const ShopingCartForm: FC<{ count: number, totalPrice: number}> = ({count, totalPrice}) => {
   const {
     register,
     handleSubmit,
@@ -14,14 +12,19 @@ export const DiscountForm: FC = () => {
   } = useForm<IFormInputs>();
   const onSubmit: SubmitHandler<IFormInputs> = data => {
     console.log(data);
-    axios.post('http://localhost:3333/sale/send', data).then(res => {
+    axios.post('http://localhost:3333/order/send', data).then(res => {
       console.log(res);
     });
   };
 
   return (
-    <div className={`container ${styles.container}`}>
-      <h2 className={styles.header}>5% off on the first order</h2>
+    <div className={styles.cartForm}>
+      <h3 className={styles.header}>Order details</h3>
+      <div className={styles.orderInfo}>
+        <p className={styles.text}>{count} items</p>
+        <p className={styles.text}>Total</p>
+        <p className={styles.price}>${totalPrice}</p>
+      </div>
       <form className={styles.form} action="" onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputContainer}>
           <input
@@ -47,7 +50,7 @@ export const DiscountForm: FC = () => {
           />
           {errors.eMail && <p className={styles.error}>{errors.eMail.type}</p>}
         </div>
-        <input type="submit" value="Get a discount" className={styles.btn} />
+        <input type="submit" value="Order" className={styles.btn} />
       </form>
     </div>
   );
