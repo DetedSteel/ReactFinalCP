@@ -18,10 +18,11 @@ export const CategoriesPage: FC = () => {
       <div className={styles.container}>
         {categoies.map(e => (
           <CategoryCard
+            id={e.id??-1}
             width={248}
             key={e.id}
-            image={`http://localhost:3333/${e.image}`}
-            title={e.title}
+            image={e.image??''}
+            title={e.title??''}
           />
         ))}
       </div>

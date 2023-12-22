@@ -1,28 +1,35 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export interface ICategory {
-  id: number;
-  title: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
+  id?: number;
+  title?: string;
+  image?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface IProduct {
   id: number;
   title: string;
   price: number;
-  discont_price: number;
+  discont_price: number|null;
   description: string;
   image: string;
   createdAt: string;
   updatedAt: string;
   categoryId: number;
+  isShown?: boolean;
 }
-
 
 export type ButtonPropsT = {
   text: string;
   onClick: () => void;
-  style: CSSProperties
+  style?: CSSProperties;
+  className?: string
+};
+
+export interface ICartItem {
+  id: number;
+  product: IProduct;
+  count: number;
 }

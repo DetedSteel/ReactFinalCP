@@ -1,4 +1,9 @@
 .container {
+  border-bottom: 1px solid#DDDDDD;
+  width: 100% !important;
+}
+
+.innerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,4 +23,20 @@
 .bagImg {
   width: 48px;
   height: 48px;
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  color: white;
+  font-size: 12px;
+  border-radius: 100%;
+  top: 3px;
+  left: 0;
+  background-color: #393;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

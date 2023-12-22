@@ -10,7 +10,7 @@ export const MainPromotion: FC = () => {
   const btnProps: ButtonPropsT = {
     text: 'Check out',
     onClick: () => {
-      navigate('/categories');
+      navigate('/categories/discounts');
     },
     style: {
       padding: '16px 56px',
