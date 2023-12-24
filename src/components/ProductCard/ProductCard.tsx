@@ -1,6 +1,6 @@
 import { CSSProperties, FC, useState } from 'react';
 import styles from './productcard.module.scss';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { useAppDispatch } from '../../hooks/rtkHooks';
 import { addToCart } from '../../store/shopingCartSlice';
@@ -22,7 +22,8 @@ export const ProductCard: FC<{ product: IProduct }> = ({ product }) => {
   };
 
   return (
-    <div
+    <Link
+      to={`/products/${id}`}
       className={styles.container}
       onMouseEnter={() => setOpacity('1')}
       onMouseLeave={() => setOpacity('0')}
@@ -31,19 +32,21 @@ export const ProductCard: FC<{ product: IProduct }> = ({ product }) => {
       <div className={styles.img}>
         <img src={`http://localhost:3333/${image}`} alt={title} />
       </div>
-      <Link to={`/products/${id}`} className={styles.text}>{title}</Link>
+      <p className={styles.text}>{title}</p>
       <div className={styles.price}>
         <p className={styles.currPrice}>${discont_price ? discont_price : price}</p>
         {discont_price && <p className={styles.oldPrice}>${price}</p>}
       </div>
       <Button
         text="Add to cart"
-        onClick={() => {
+        onClick={(e:MouseEvent) => {
+          e.stopPropagation();
+          e.preventDefault();
           dispatch(addToCart({ product: product, count: 1, id: id }));
         }}
         style={style}
         className={styles.btn}
       />
-    </div>
+    </Link>
   );
 };

@@ -33,7 +33,7 @@ const cartSlice = createSlice({
             e.count += action.payload.count;
           }
           localStorage.setItem(`${e.product.id}`, JSON.stringify(e));
-          localStorage.setItem('totalPrice', state.totalPrice.toString());
+          localStorage.setItem('totalPrice', state.totalPrice.toPrecision(7));
           return e;
         });
       } else {
@@ -42,7 +42,7 @@ const cartSlice = createSlice({
           ? action.payload.product.discont_price * action.payload.count
           : action.payload.product.price * action.payload.count;
         localStorage.setItem(`${action.payload.id}`, JSON.stringify(action.payload));
-        localStorage.setItem('totalPrice', state.totalPrice.toString());
+        localStorage.setItem('totalPrice', state.totalPrice.toPrecision(7));
       }
     },
     removeFromCart: (state, action: { payload: number }) => {
@@ -58,7 +58,7 @@ const cartSlice = createSlice({
       state.items = state.items.filter(e => {
         if (e.id === action.payload) {
           localStorage.removeItem(e.id.toString());
-          localStorage.setItem('totalPrice', state.totalPrice.toString());
+          localStorage.setItem('totalPrice', state.totalPrice.toPrecision(7));
           return false;
         } else {
           return true;
@@ -74,7 +74,7 @@ const cartSlice = createSlice({
             : e.product.price * action.payload.count;
         }
         localStorage.setItem(`${action.payload.id}`, JSON.stringify(e));
-        localStorage.setItem('totalPrice', state.totalPrice.toString());
+        localStorage.setItem('totalPrice', state.totalPrice.toPrecision(7));
         return e;
       });
       state.items = state.items.filter(e => {

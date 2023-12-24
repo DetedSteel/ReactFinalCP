@@ -23,7 +23,7 @@ export interface IProduct {
 
 export type ButtonPropsT = {
   text: string;
-  onClick: () => void;
+  onClick: (e?:MouseEvent<HTMLButtonElement>) => void;
   style?: CSSProperties;
   className?: string
 };

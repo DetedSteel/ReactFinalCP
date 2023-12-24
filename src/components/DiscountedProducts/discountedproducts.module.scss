@@ -5,4 +5,31 @@
 
 .container {
   margin-top: 80px!important;
+  position: relative;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.discountsBtn {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  padding: 8px 16px;
+  color: #DDD;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1093px;;
+    height: 1px;
+    background-color: #DDD;
+    right: 98px;
+    top: 17.5px;
+    cursor:auto;
+  }
 }

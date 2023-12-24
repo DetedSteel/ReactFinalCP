@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import axios from 'axios';
 import { IFormInputs } from '../../types/app';
 
-export const ShopingCartForm: FC<{ count: number, totalPrice: number}> = ({count, totalPrice}) => {
+export const ShopingCartForm: FC<{ count: number, totalPrice: string}> = ({count, totalPrice}) => {
   const {
     register,
     handleSubmit,

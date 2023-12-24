@@ -41,8 +41,8 @@ export const ShopingCartItem: FC<{ item: ICartItem; dispatch: AppDispatch }> = (
             />
           </div>
           <div className={styles.priceContainer}>
-            <p className={styles.newPrice}>${discont_price ? discont_price * count : price * count}</p>
-            {discont_price && <div className={styles.oldPrice}>${price * count}</div>}
+            <p className={styles.newPrice}>${discont_price ? (discont_price * count).toFixed(2) : (price * count).toFixed(2)}</p>
+            {discont_price && <div className={styles.oldPrice}>${(price * count).toFixed(2)}</div>}
           </div>
         </div>
       </div>

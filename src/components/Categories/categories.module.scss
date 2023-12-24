@@ -6,4 +6,27 @@
 
 .container {
   margin-top: 80px!important;
+  position: relative;
+}
+
+.categoiesBtn {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  padding: 8px 16px;
+  color: #DDD;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 832px;
+    height: 1px;
+    background-color: #DDD;
+    right: 142.5px;
+    top: 17.5px;
+    cursor:auto;
+  }
 }
