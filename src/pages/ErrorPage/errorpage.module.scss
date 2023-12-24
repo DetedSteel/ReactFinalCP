@@ -1,0 +1,37 @@
+.errorText {
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img {
+  width: 690px;
+  height: 270px;
+  margin-top: 80px;
+  margin-bottom: 32px;
+}
+
+.errorMsg {
+  color: #8B8B8B;
+  width: 640px;
+  font-size: 20px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.homeBtn {
+  padding: 16px 56px;
+  border-radius: 6px;
+  background-color: #393;
+  width: fit-content;
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}

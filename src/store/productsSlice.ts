@@ -5,6 +5,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 type ProductsState = {
   category: ICategory;
   data: IProduct[];
+  status?: string;
 };
 
 export const fetchProducts = createAsyncThunk<
@@ -18,6 +19,9 @@ export const fetchProducts = createAsyncThunk<
     return rejectWithValue('error');
   }
   const data = await response.data;
+  if (data.status === 'ERR') {
+    throw new Error();
+  }
   return data;
 });
 

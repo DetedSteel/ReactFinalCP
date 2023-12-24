@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { ShopingCartItem } from '../../components/ShopingCartItem/ShopingCartItem';
 import styles from './shopingcartpage.module.scss';
 import { ShopingCartForm } from '../../components/ShopingCartForm/ShopingCartForm';
 import { Link } from 'react-router-dom';
+import { PopUp } from '../../components/PopUp/PopUp';
 
 export const ShopingCartPage: FC = () => {
   const products = useAppSelector(state => state.shopingCart.items);
   const totalPrice = useAppSelector(state => state.shopingCart.totalPrice);
   const dispatch = useAppDispatch();
+
+  const [popUp, setPopUp] = useState(false);
 
   return (
     <div className={`container ${styles.wrapper}`}>
@@ -20,8 +23,9 @@ export const ShopingCartPage: FC = () => {
             return <ShopingCartItem key={e.id} item={e} dispatch={dispatch} />;
           })}
         </div>
-        <ShopingCartForm count={products.length} totalPrice={totalPrice.toFixed(2)} />
+        <ShopingCartForm count={products.length} totalPrice={totalPrice.toFixed(2)} submitPopUp={() => setPopUp(true)} />
       </div>
+      {popUp && <PopUp btnClick={() => setPopUp(false)}/>}
     </div>
   );
 };

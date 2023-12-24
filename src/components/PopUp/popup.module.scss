@@ -1,0 +1,49 @@
+.popUpContainer {
+  width: 548px;
+  height: 256px;
+  padding: 32px;
+  background-color: #393;
+  border-radius: 12px;
+  position: fixed;
+  top: calc(50vh - 128px);
+  left: calc(50vw - 274px);
+  z-index: 4;
+}
+
+.container {
+  background-color: rgba(40, 40, 40, 0.40);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.text {
+  width: 424px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: white;
+}
+
+.btn {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  background-image: url('/ic_x_white.svg');
+  top: 32px;
+  right: 32px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}

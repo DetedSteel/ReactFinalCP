@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/rtkHooks';
 import { fetchProducts, filter, sort } from '../../store/productsSlice';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import styles from './productslistpage.module.scss';
 import { IProduct } from '../../types/app';
@@ -18,6 +18,7 @@ export const ProductListPage: FC = () => {
   const [isFiltered, setIsFiltered] = useState(false);
 
   const params = useParams();
+  const navigate = useNavigate();
 
   function renderPrudoducts(list: IProduct[]) {
     return list.map(e => {
@@ -57,10 +58,17 @@ export const ProductListPage: FC = () => {
       setTitle('Discounted items');
     } else {
       setIsAll(false);
-      dispatch(fetchProducts({ id: parseInt(params.id ?? '1') }));
+      if (isNaN(parseInt(params.id ?? 'a'))) {
+        throw new Error();
+      }
+      dispatch(fetchProducts({ id: parseInt(params.id ?? '1') })).then((e) => {
+        if (!e.payload) {
+          navigate('awdawda')
+        }
+      });
       setTitle(category.title ?? '');
     }
-  }, [category.title, dispatch, params.id]);
+  }, [category.title, dispatch, navigate, params.id]);
 
   return (
     <div className={`container`}>
